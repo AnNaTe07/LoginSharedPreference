@@ -41,7 +41,10 @@ public class MainActivityViewModel extends AndroidViewModel {
 
         Usuario usuario = ApiClient.login(context, email, pass);
 
-        if(usuario==null){
+        if (email.isEmpty() || pass.isEmpty()) {
+            mMensaje.setValue("Por favor, complete todos los campos.");
+        }
+        else if(usuario==null){
             mMensaje.setValue("Datos incorrectos");
         }else{
             mUsuario.setValue(usuario);

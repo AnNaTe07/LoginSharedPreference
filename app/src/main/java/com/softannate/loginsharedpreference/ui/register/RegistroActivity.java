@@ -37,7 +37,7 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 vm.registrar(binding.etNombre.getText().toString(), binding.etApellido.getText().toString(), binding.etDni.getText().toString(), binding.etEmail2.getText().toString(), binding.etPass2.getText().toString());
-                finish();//cierro la activity actual
+
             }
         });
         vm.getMensaje().observe(this, new Observer<String>() {
@@ -45,6 +45,7 @@ public class RegistroActivity extends AppCompatActivity {
             public void onChanged(String mensaje) {
                 Toast.makeText(RegistroActivity.this, mensaje, Toast.LENGTH_SHORT).show();
                 limpiar();
+                finish();//cierro la activity actual
             }
         });
 
